@@ -43,3 +43,4 @@ let v = "This is String";
 console.log(v, "->", typeof v);
 v = 2024;
 console.log(v, "->", typeof v); //  자바스크립트는 정수형, 실수형 구분 x
+
