@@ -63,7 +63,6 @@ sandbox(3, 4, function(v1, v2) {
 sandbox(3, 4, function(v1, v2) {
     console.log(v1 * v2);
 })
-
 //  함수를 전달해 주고, 함수 내부에서 거꾸로 호출되는 함수
 //  -> Callback 함수
 //  데이터 처리함수, 이벤트 처리 함수 등에서 활용
