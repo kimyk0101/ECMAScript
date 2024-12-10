@@ -5,7 +5,7 @@ const person = new Object();
 //  동적으로 속성 추가
 person.name = "홍길동";
 person.age = 28;
-//  동적ㅇ로 메서드 추가
+//  동적으로 메서드 추가
 person.showInfo = function() {
     //  this: 현재 인스턴스 자체
     let message = 
