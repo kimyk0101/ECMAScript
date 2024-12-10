@@ -47,7 +47,7 @@ console.log(ingr);
 //  Join: 특정 문자열 기준 합치기
 console.log("김장 재료:", ingr.join(", "));
 
-//  push, pop -> stack 자료형처럼 사용 가능
+//  push, pop -> stack 자료형처럼 사용 가능 (후입선출)
 let fruits = ["Apple", "Banana", "Orange", "Mango"];
 console.log(fruits);
 fruits.push("Kiwi");
@@ -57,6 +57,7 @@ console.log(fruits.pop());  //  Mango
 console.log(fruits.pop());  //  Orange
 console.log(fruits);    //  ['Apple', 'Banana']
 
+//  shift -> queue 자료형처럼 사용 가능 (선입선출)
 fruits.push('Orange', 'Mango', 'Kiwi');
 console.log(fruits);
 console.log(fruits.shift());    //  Apple
