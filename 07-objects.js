@@ -19,13 +19,12 @@ person.showInfo();
 console.log("========== JSON");
 const person2 = {
     //  키 : 값
-    name: "홍길동",
-    age: 28,
+    name : "홍길동",
+    age : 28,
     showInfo: function() {
         console.log(`Name: ${this.name}, Age: ${this.age}`);
     }
 }
-
 console.log(person2);
 
 console.log(person2.name);  //  속성 접근
