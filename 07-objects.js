@@ -81,3 +81,4 @@ String.prototype.sayHello = function() {
 console.log("둘리".sayHello());
 
 //  TODO: this binding
+//  자바스크립트의 this는 실행 상황에 따라 가리키는 객체가 다름
