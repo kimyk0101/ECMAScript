@@ -40,4 +40,39 @@ function testEverySome() {
     });
     console.log("일부 인물의 나이가 25세 초과?", result);
 }
-testEverySome();
+// testEverySome();
+
+//  데이터 처리 파이프라인
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const source = [12, 4, 19, 33, 86];
+//  map -> filter -> sort -> reduce
+function testMap() {
+    //  map -> 배열 형태는 그대로, 배열 요소를 변형
+    console.log("===== map");
+    console.log("원본 배열:",numbers);
+    //  numbers 배열의 모든 요소를 2배
+    //  기존 방식의 구현 
+    let multiply = [];
+    for (let i = 0; i < numbers.length; i++) {
+        multiply.push(numbers[i] * 2);
+    }
+    console.log("기존방식 * 2:", multiply);
+
+    multiply = numbers.map(item => item * 2);
+    console.log("MAP * 2:", multiply);
+}
+// testMap();
+
+function testFilter () {
+    console.log("===== filter");
+    //  filter: 내부 요소는 그대로, 조건 만족하는 요소만 뽑아서 새 배열 생성
+
+    //  numbers 배열에서 짝수만 필터링
+    let result = numbers.filter(item => item % 2 == 0);
+    console.log("원본 데이터:", numbers);
+    console.log("짝수 데이터:", result);
+    console.log("3의 배수:", 
+        numbers.filter(item => item % 3 == 0)
+    );
+}
+testFilter();
