@@ -145,5 +145,39 @@ function testDataPipeline() {
         total: s.kor + s.eng + s.math
     }));
     console.log("map:", studentsWithTotal);
+
+    //  filter 함수 이용 -> total >= 240 만 출력
+    const filterdStudents = studentsWithTotal.filter(
+        student => student.total >= 240);
+    console.log("총점 240 이상:", filterdStudents);
+
+    //  sort 함수 이용 정렬 -> 총점 기준으로
+    const sortedStudents = filterdStudents.sort(
+        // (a, b) => a.total - b.total
+        (a, b) => b.total - a.total
+        
+    );
+    console.log("total 순 정렬:", sortedStudents);
+
+    //  reduce 함수 활용 -> 240점 이상 학생들의 총점 평균
+    const totalSum = sortedStudents.reduce(
+        (acc, student) => acc + student.total,
+        0
+    );
+    console.log("총점 240이상 학생들의 총점:", totalSum);
+    const avgTotalSum = totalSum / sortedStudents.length;
+    console.log("총점 240이상 학생들의 평균:", avgTotalSum);
 }
-testDataPipeline();
+// testDataPipeline();
+
+console.log(
+    "데이터 파이프라인 구축:",
+    data
+        .map(student =>({
+            ...student,
+            total: student.kor + student.eng + student.math
+        }))
+    .filter(student => student.total >= 240)
+    .sort((a, b) => b.total - a.total)
+    .reduce((acc, student) => acc + student.total, 0) / 3
+);
