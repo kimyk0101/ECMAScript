@@ -88,6 +88,7 @@
         //  하단의 .sub-image 클릭하면 이미지 주소를 main-image
         //  title 속성 -> main-image, h2 태그로 복사
         let products = document.getElementsByClassName("sub-image");
+        //  HTMLCollection
         for (let i = 0; i < products.length; i++) {
             //  개별 프로덕트
             let product = products[i];
@@ -110,9 +111,17 @@
                 let h2 = document.querySelector("#product-info h2");
                 h2.innerText = obj.getAttribute("title");
                 //  .innerText -> 콘텐츠 변경 (text)
-                //  .innerHTML -> 콘텐츠 변경 (HTML)
+                //  .innerHTML -> 콘텐츠 변경 (HTML) - 태그
             });
         }
+
+        //  input#keyword의 내용이 변하면 button#btn-search의 value 속성으로 복사
+        document.getElementById("keyword").addEventListener("keyup", (event) => {
+            console.log(event);
+
+            let btn = document.querySelector("#btn-search");
+            btn.innerText = event.target.value + "검색";
+        });
     });
 </script>
 </html>
