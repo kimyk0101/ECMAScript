@@ -28,4 +28,60 @@
             &copy;Bit Academy
         </div>
     </body>
+    <script>
+        function addItem(evnet) {
+            //  input#item의 value를 확인 trim -> length > 0 => 추가
+            let itemInput = document.getElementById("item");
+            let item = itemInput.value.trim();
+
+            if (item.length > 0) {
+                //  ul#list에 li 만들어서 추가
+                let container = document.getElementById("list");
+                //  li 노드 생성
+                let itemNode = document.createElement("li");
+                itemNode.innerText = item;
+
+                //  toolbar
+                let toolbar = document.createElement("div");
+                toolbar.style.display = "inline";
+                //  delBtn
+                let delBtn = document.createElement("button");
+                delBtn.innerText = "삭제";
+                delBtn.style.cssFloat = "right";
+                toolbar.appendChild(delBtn);
+                itemNode.appendChild(toolbar);
+                container.appendChild(itemNode);
+
+                delBtn.addEventListener("click", event => {
+                    //  삭제할 노드 찾기
+                    let removeItem = event.target.parentNode.parentNode;
+                    //  삭제할(부모) 노드 찾기
+                    let parentNode = removeItem.parentNode;
+                    //  삭제하기
+                    parentNode.removeChild(removeItem);
+                })
+
+                itemInput.value = "";
+                itemInput.focus();
+            }
+        }
+
+        window.addEventListener("load", evnet => {
+            //  #list li 모두 삭제
+            let cartItems = document.querySelectorAll("#list li");
+            //  -> HTMLCollection
+            console.log("items:", cartItems);
+
+            for (let i = 0; i < cartItems.length; i++) {
+                //  부모로부터 제거
+                let item = cartItems[i];
+                // let parent = document.getElementById("list");
+                let parent = item.parentNode;
+                parent.removeChild(item);   //  부모로부터 노드 제거
+            }
+            //  #btn-add에 이벤트리스너 부착
+            document.getElementById("btn-add")
+                .addEventListener("click", addItem);
+        });
+    </script>
 </html>
