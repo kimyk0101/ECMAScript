@@ -63,7 +63,7 @@
         //  하단의 .sub-image들의 title 속성도 변경
         let subs = document.getElementsByClassName("sub-image");
         console.log(".sub-image:", subs);
-        console.log(subs.__proto__);    //  HTMLCollection, __proto__ : 모든 객체가 가지고 있다, 하나의 Link
+        console.log(subs.__proto__);    //  HTMLCollection, __proto__ : 객체의 prototype 받아오기
         //  직접 접근 불가, loop 필요
 
         for (let i = 0; i < subs.length; i++) {
