@@ -100,6 +100,17 @@
             let h2 = $("#product-info h2");
             h2.text(obj.attr("title"));
         }); 
+
+        //  input#keyword의 내용이 변하면 button#btn-search의 value 속성으로 복사
+        $("#keyword").on("keyup", event => {
+            let input = $(event.target);   //  이벤트 발생 객체
+
+            let btn = $("#btn-search");
+            btn.text(input.val() + "검색");
+
+        });
     });
+    
+    
 </script>
 </html>
