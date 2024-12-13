@@ -73,6 +73,33 @@
             $(subs[i]).attr("title", "선택상품:" + $(subs[i]).attr("title"));
         }
     }
-    testAttributeJQ();
+    // testAttributeJQ();
+
+    //  #main-image 클릭하면 이벤트 정보를 콘솔에 출력
+    $("#main-image").click(function(event) {
+        console.log(event); //  event 정보
+        alert(event.target.title);
+    })
+
+    //  페이지 초기화
+    //  window의 load 이벤트와 동일, 즉 페이지 초기화 작업
+    $(document).ready(() => {
+        //  하단의 .sub-image들의 클릭 이벤트 부착
+        let subs = $(".sub-image");
+        //  요소가 여러개라도 Loop를 돌리지 않아도 된다.
+        subs.on("click", (event) => {
+            //  이벤트 발생 객체에서
+            let obj = $(event.target);  //  이벤트 발생 객체를 jQuery로 포장
+            //  scr 속성, title 속성 -> #main-image로 이전
+            let mainImage = $("#main-image");
+            mainImage.attr({
+                src: obj.attr("src"),
+                title: obj.attr("title")
+            });
+            //  src 속성, title 속성 -> #product-info h2로 이전
+            let h2 = $("#product-info h2");
+            h2.text(obj.attr("title"));
+        }); 
+    });
 </script>
 </html>
