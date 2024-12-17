@@ -45,7 +45,55 @@
 
     <script>
         // LocalStorage Handlers - User Settings
+        //  #saveLocalStorage click 이벤트
+        document.getElementById("saveLocalStorage")
+                .addEventListener("click", event => {
+            //  #theme, #fontSize를 가져와서 LocalStorage에 저장
+            const theme = document.getElementById("theme").value;
+            const fontSize = document.getElementById("fontSize").value;
 
+            if (theme && fontSize) {
+                //  다 입력되어 있으면 저장
+                localStorage.setItem("theme", theme);
+                localStorage.setItem("fontSize", fontSize);
+
+                //  #localStorageResult에 저장 결과 출력
+                document.getElementById("localStorageResult")
+                        .innerText = `저장되었습니다: theme: ${theme}, fontSize: ${fontSize}`;
+            } else {
+                //  경고
+                alert("테마와 폰트 크기 모두 입력해주세요.");
+            }
+        });
+
+        //  #readSessionStorage click 이벤트
+        document.getElementById("readLocalStorage")
+                .addEventListener("click", event => {
+            //  theme와 fontSize를 LocalStorage로부터 읽어와서
+            //  #localStorageResult에 콘텐츠로 추가  
+            const theme = localStorage.getItem("theme");
+            const fontSize = localStorage.getItem("fontSize");  
+
+            if (theme && fontSize) {
+                //  데이터 읽어오기
+                document.getElementById("localStorageResult")
+                        .innerText = `READ: theme: ${theme}, fontSize: ${fontSize}`;
+            } else {
+                //  읽어올 수 없음
+                document.getElementById("localStorageResult")
+                    .innerText = "설정 값이 없습니다.";
+            }
+        });
+
+        //  #deleteLocalStorage click 이벤트
+        document.getElementById("deleteLocalStorage")
+                .addEventListener("click", event => {
+            localStorage.removeItem("theme");
+            localStorage.removeItem("fontSize");
+            
+            document.getElementById("localStorageResult")
+                    .innerText = "설정이 삭제되었습니다."
+        });
 
         // SessionStorage Handlers - User Information
 
